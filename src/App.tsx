@@ -1,11 +1,25 @@
 import React from 'react';
+import {
+  BrowserRouter, Routes, Route,
+} from 'react-router-dom';
+import { StoreProvider } from './store';
+import Home from './components/Home';
 
-function App() {
-  return (
-    <div className="App">
-      <p>hello world</p>
-    </div>
-  );
-}
+const App: React.FC = () => (
+  <div>
+    <BrowserRouter>
+      <Routes>
+        <Route
+          path="/"
+          element={(
+            <StoreProvider>
+              <Home />
+            </StoreProvider>
+        )}
+        />
+      </Routes>
+    </BrowserRouter>
+  </div>
+);
 
 export default App;
