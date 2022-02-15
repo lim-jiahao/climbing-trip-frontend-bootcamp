@@ -1,14 +1,3 @@
-<<<<<<< Updated upstream
-import React from 'react';
-
-function App() {
-  return (
-    <div className="App">
-      <p>hello world</p>
-    </div>
-  );
-}
-=======
 import React, { useEffect, useContext } from 'react';
 import axios from 'axios';
 import {
@@ -57,6 +46,5 @@ const App: React.FC = () => {
     </div>
   );
 };
->>>>>>> Stashed changes
 
 export default App;

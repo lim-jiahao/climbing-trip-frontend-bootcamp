@@ -22,7 +22,7 @@ const AddTripForm = () => {
     try {
       const resp = await axios.post(`${REACT_APP_BACKEND_URL}/trips`, { name: tripName });
       if (resp.data.trip) {
-        console.log('i have trips');
+        console.log("i have trips");
         setTripName('');
         setBtnDisabled(true);
         dispatch(addTripAction(resp.data.trip));
@@ -33,6 +33,7 @@ const AddTripForm = () => {
   };
 
   return (
+    
     <form onSubmit={handleSubmit}>
       <div className="flex mt-4 justify-center items-start">
         <input className="p-2 mb-4 mr-3 text-indigo-700 border-2 border-indigo-500 outline-none focus:bg-gray-300" value={tripName} onChange={handleChange} required />

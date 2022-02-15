@@ -49,7 +49,7 @@ export const storeReducer = (state: State, action: Action) => {
     case ActionTypes.ADD_TRIP:
       return { ...state, trips: [...state.trips, action.payload.trip] };
     case ActionTypes.ADD_CLIMB:
-      action.payload.trip.climbs = [...action.payload.trip.climbs, action.payload.climb];
+      action.payload.trip.climbs = [action.payload.climb, ...action.payload.trip.climbs];
       return { ...state, trips: [...state.trips, action.payload.trip] };
     default:
       return state;
@@ -84,7 +84,7 @@ export const addClimbAction = (trip: Trip, climb: Climb) => {
 
 export const Context = React.createContext<ContextInterface>({
   store: initialState,
-  dispatch: () => initialState,
+  dispatch: () => {},
 });
 const { Provider } = Context;
 

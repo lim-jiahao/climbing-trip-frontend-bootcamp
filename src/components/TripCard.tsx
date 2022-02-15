@@ -1,6 +1,5 @@
 import React from 'react';
-import { CalendarIcon, LocationMarkerIcon, UsersIcon } from '@heroicons/react/solid';
-
+import { LocationMarkerIcon } from '@heroicons/react/solid';
 import { Climb, Trip } from '../store';
 
 interface Props {

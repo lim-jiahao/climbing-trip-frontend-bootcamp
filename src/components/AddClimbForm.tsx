@@ -13,8 +13,8 @@ const AddClimbForm = ({ trip }: Props) => {
   const [climbName, setClimbName] = useState<string | undefined>('');
   const [difficulty, setDifficulty] = useState<string | undefined >('');
 
-  const handleNameChange = (e: {target: HTMLInputElement }) => setClimbName(e.target.value);
-  const handleDifficultyChange = (e: {target: HTMLInputElement }) => setDifficulty(e.target.value);
+  const handleNameChange = (e: React.ChangeEvent<HTMLInputElement>) => setClimbName(e.target.value);
+  const handleDifficultyChange = (e:React.ChangeEvent<HTMLInputElement>) => setDifficulty(e.target.value);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
