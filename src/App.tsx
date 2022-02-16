@@ -1,28 +1,3 @@
-<<<<<<< HEAD
-import React from 'react';
-import {
-  BrowserRouter, Routes, Route,
-} from 'react-router-dom';
-import { StoreProvider } from './store';
-import Home from './components/Home';
-
-const App: React.FC = () => (
-  <div>
-    <BrowserRouter>
-      <Routes>
-        <Route
-          path="/"
-          element={(
-            <StoreProvider>
-              <Home />
-            </StoreProvider>
-        )}
-        />
-      </Routes>
-    </BrowserRouter>
-  </div>
-);
-=======
 import React, { useEffect, useContext } from 'react';
 import axios from 'axios';
 import {
@@ -71,6 +46,5 @@ const App: React.FC = () => {
     </div>
   );
 };
->>>>>>> 82df12ceb16e52f7c432cffe0429dbd48287ff7a
 
 export default App;

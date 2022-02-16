@@ -2,7 +2,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
-import { Context } from '../store';
+import { Context, Climb } from '../store';
 
 import TripCard from './TripCard';
 import AddClimbForm from './AddClimbForm';
@@ -13,17 +13,19 @@ const TripDetail: React.FC = () => {
   const { trips } = store;
   const trip = trips.filter((tripEl: any) => tripEl.id === Number(id))[0];
   console.log(trip);
-  const [climbPriority, setClimbPriority] = useState();
+  const [climbPriority, setClimbPriority] = useState<Climb[] | null>(null);
 
   useEffect(() => {
     setClimbPriority(trip?.climbs);
   }, [trip]);
 
-  const handleOnDragEnd = (e:any) => {
-    const items = Array.from(climbPriority);
-    const [reorderedItem] = items.splice(e.source.index, 1);
-    items.splice(e.destination.index, 0, reorderedItem);
-    setClimbPriority(items);
+  const handleOnDragEnd = (e: any) => {
+    if (climbPriority) {
+      const items = Array.from(climbPriority);
+      const [reorderedItem] = items.splice(e.source.index, 1);
+      items.splice(e.destination.index, 0, reorderedItem);
+      setClimbPriority(items);
+    }
   };
 
   return (
@@ -42,7 +44,7 @@ const TripDetail: React.FC = () => {
                   {...provided.droppableProps}
                   ref={provided.innerRef}
                 >
-                  { trip && climbPriority && (
+                  {trip && climbPriority && (
                     <>
                       {climbPriority.map((climb: any, index) => (
                         <Draggable
@@ -69,9 +71,7 @@ const TripDetail: React.FC = () => {
                   )}
                   {provided.placeholder}
                 </ul>
-
               )}
-
             </Droppable>
           </DragDropContext>
         </div>
