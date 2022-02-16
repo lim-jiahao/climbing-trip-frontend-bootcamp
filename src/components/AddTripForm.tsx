@@ -7,7 +7,10 @@ const REACT_APP_BACKEND_URL = process.env.REACT_APP_BACKEND_URL || 'http://local
 
 const AddTripForm = () => {
   const { dispatch } = useContext(Context);
+<<<<<<< HEAD
 
+=======
+>>>>>>> 82df12ceb16e52f7c432cffe0429dbd48287ff7a
   const [tripName, setTripName] = useState<string>('');
   const [btnDisabled, setBtnDisabled] = useState<boolean>(true);
 
@@ -23,6 +26,10 @@ const AddTripForm = () => {
     try {
       const resp = await axios.post(`${REACT_APP_BACKEND_URL}/trips`, { name: tripName });
       if (resp.data.trip) {
+<<<<<<< HEAD
+=======
+        console.log("i have trips");
+>>>>>>> 82df12ceb16e52f7c432cffe0429dbd48287ff7a
         setTripName('');
         setBtnDisabled(true);
         dispatch(addTripAction(resp.data.trip));
@@ -33,6 +40,10 @@ const AddTripForm = () => {
   };
 
   return (
+<<<<<<< HEAD
+=======
+    
+>>>>>>> 82df12ceb16e52f7c432cffe0429dbd48287ff7a
     <form onSubmit={handleSubmit}>
       <div className="flex mt-4 justify-center items-start">
         <input className="p-2 mb-4 mr-3 text-indigo-700 border-2 border-indigo-500 outline-none focus:bg-gray-300" value={tripName} onChange={handleChange} required />
